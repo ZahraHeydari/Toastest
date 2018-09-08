@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/toast_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/make_a_toast" />
+
+    <Button
+        android:id="@+id/toast_custom_with_icon_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toast_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/make_a_toast_with_icon_without_background" />
+
+    <Button
+        android:id="@+id/toast_custom_with_new_background_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toast_custom_with_icon_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/make_a_toast_with_background" />
+
+    <Button
+        android:id="@+id/toast_custom_with_new_font_type_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toast_custom_with_new_background_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/make_a_toast_with_font_type_text" />
+
+    <Button
+        android:id="@+id/toast_custom_with_new_text_size_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toast_custom_with_new_font_type_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/make_a_toast_with_new_text_size" />
+
+    <Button
+        android:id="@+id/toast_custom_fully_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toast_custom_with_new_text_size_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/make_a_fully_customized_toast" />
+
+
+</RelativeLayout>

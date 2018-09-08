@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Toastest</string>
+    <string name="make_a_toast">Make a toast</string>
+    <string name="make_a_toast_with_icon_without_background">Make a toast with icon</string>
+    <string name="make_a_toast_with_background">Make a toast with a new background</string>
+    <string name="make_a_toast_with_font_type_text">Make a toast with a new font type</string>
+    <string name="a_normal_toast">A normal toast!</string>
+    <string name="a_toast_with_icon">A toast with icon.</string>
+    <string name="a_toast_with_new_background">A toast with a new background.</string>
+    <string name="a_toast_with_new_font_type">A toast with a new font type.</string>
+    <string name="make_a_toast_with_new_text_size">Make a toast with a new text size</string>
+    <string name="a_toast_with_new_text_size">A toast with a new text size.</string>
+    <string name="make_a_fully_customized_toast">Make a fully customized toast</string>
+</resources>
