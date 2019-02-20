@@ -1,5 +1,6 @@
 package qw.greendroid.library
 
+
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
@@ -32,39 +33,39 @@ class Toastest {
 
 
         fun makeToast(context: Context, message: String, duration: Int): Toast {
-            return custom(context, message, null, null, DEFAULT_TEXT_TYPEFACE,DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
+            return custom(context, message, null, null, DEFAULT_TEXT_TYPEFACE, DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
         }
 
         fun makeToast(context: Context, message: String, icon: Drawable, duration: Int): Toast {
-            return custom(context, message, icon, null, DEFAULT_TEXT_TYPEFACE,DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
+            return custom(context, message, icon, null, DEFAULT_TEXT_TYPEFACE, DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
         }
 
         fun makeToast(context: Context, message: String, icon: Drawable, background: Drawable, duration: Int): Toast {
-            return custom(context, message, icon, background, DEFAULT_TEXT_TYPEFACE,DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
+            return custom(context, message, icon, background, DEFAULT_TEXT_TYPEFACE, DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
         }
 
         fun makeToast(context: Context, background: Drawable, message: String, duration: Int): Toast {
-            return custom(context, message, null, background, DEFAULT_TEXT_TYPEFACE,DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
+            return custom(context, message, null, background, DEFAULT_TEXT_TYPEFACE, DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
         }
 
         fun makeToast(context: Context, message: String, textSize: Int, duration: Int): Toast {
-            return custom(context, message, null, null, Typeface.DEFAULT_BOLD,DEFAULT_TEXT_COLOR, textSize, duration)
+            return custom(context, message, null, null, Typeface.DEFAULT_BOLD, DEFAULT_TEXT_COLOR, textSize, duration)
         }
 
         fun makeToast(context: Context, message: String, fontType: Typeface, duration: Int): Toast {
-            return custom(context, message, null, null, fontType,DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
+            return custom(context, message, null, null, fontType, DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
         }
 
         fun makeToast(context: Context, message: String, background: Drawable, fontType: Typeface, duration: Int): Toast {
-            return custom(context, message, null, background, fontType,DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
+            return custom(context, message, null, background, fontType, DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
         }
 
         fun makeToast(context: Context, message: String, textSize: Int, fontType: Typeface, duration: Int): Toast {
-            return custom(context, message, null, null, fontType,DEFAULT_TEXT_COLOR, textSize, duration)
+            return custom(context, message, null, null, fontType, DEFAULT_TEXT_COLOR, textSize, duration)
         }
 
         fun makeToast(context: Context, message: String, background: Drawable, textSize: Int, fontType: Typeface, duration: Int): Toast {
-            return custom(context, message, null, background, fontType,DEFAULT_TEXT_COLOR, textSize, duration)
+            return custom(context, message, null, background, fontType, DEFAULT_TEXT_COLOR, textSize, duration)
         }
 
 
@@ -82,25 +83,16 @@ class Toastest {
             val toastTextView = toastLayout.findViewById<TextView>(R.id.toast_text_view)
 
             //toast background
-            if (background != null) {
-                toastLayout.background = background
-            } else {
-                toastLayout.background = getDrawable(context, R.drawable.toastest_background)
-            }
+            toastLayout.background = if (background != null) background else getDrawable(context, R.drawable.toastest_background)
 
             //icon
-            if (icon != null) {
-                toastIcon.setBackground(icon)
-            } else {
-                toastIcon.visibility = View.GONE
-            }
+            if (icon != null) toastIcon.setBackground(icon) else toastIcon.visibility = View.GONE
 
             toastTextView.text = message
             toastTextView.setTextColor(textColor)
             toastTextView.typeface = fontType
             toastTextView.setTextSize(textSize.toFloat())
             currentToast.view = toastLayout
-
             return currentToast
 
         }
