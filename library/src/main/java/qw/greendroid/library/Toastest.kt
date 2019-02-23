@@ -5,13 +5,18 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.support.annotation.ColorInt
 import android.support.v4.content.ContextCompat.getDrawable
+import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import android.view.ViewGroup
+import android.animation.*
+
 
 
 /**
@@ -30,7 +35,6 @@ class Toastest {
         private var DEFAULT_TEXT_COLOR = Color.parseColor("#FFFFFF")
         private var DEFAULT_TEXT_SIZE = 16
         private val DEFAULT_TEXT_TYPEFACE = Typeface.create("sans-serif-condensed", Typeface.NORMAL)
-
 
         fun makeToast(context: Context, message: String, duration: Int): Toast {
             return custom(context, message, null, null, DEFAULT_TEXT_TYPEFACE, DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
@@ -68,6 +72,32 @@ class Toastest {
             return custom(context, message, null, background, fontType, DEFAULT_TEXT_COLOR, textSize, duration)
         }
 
+        fun makeGravity(toast: Toast, gravity:Int){
+            toast.setGravity(gravity,0,0)
+        }
+
+        fun makeAnim(toast: Toast,
+                     propertyName: String,
+                     animDuration: Long,
+                     animInterpolator: TimeInterpolator,
+                     from: Float,
+                     to: Float) {
+            val anim = ObjectAnimator.ofFloat(toast.view, propertyName, from, to)
+            anim.duration = animDuration // Duration in milliseconds
+            anim.interpolator = animInterpolator // E.g. Linear, Accelerate, Decelerate
+            anim.start() // Begin the animation
+        }
+
+        fun makeAnim(toast: Toast,
+                     propertyName: String,
+                     animDuration: Long,
+                     from: Float,
+                     to: Float) {
+            val anim = ObjectAnimator.ofFloat(toast.view, propertyName, from, to)
+            anim.duration = animDuration
+            anim.start()
+        }
+
 
         fun custom(context: Context, message: String, icon: Drawable?,
                    background: Drawable?,
@@ -92,10 +122,14 @@ class Toastest {
             toastTextView.setTextColor(textColor)
             toastTextView.typeface = fontType
             toastTextView.setTextSize(textSize.toFloat())
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                TransitionManager.beginDelayedTransition(toastLayout as ViewGroup)
+            }
             currentToast.view = toastLayout
             return currentToast
-
         }
+
     }
 
 }

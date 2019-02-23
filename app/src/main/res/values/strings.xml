@@ -11,4 +11,7 @@
     <string name="make_a_toast_with_new_text_size">Make a toast with a new text size</string>
     <string name="a_toast_with_new_text_size">A toast with a new text size.</string>
     <string name="make_a_fully_customized_toast">Make a fully customized toast</string>
+    <string name="make_a_toast_with_new_gravity">Make a toast with new gravity</string>
+    <string name="make_a_toast_by_anim">Make a toast by anim</string>
+    <string name="make_a_toast_with_new_gravity_by_anim">Make a toast with new gravity by anim</string>
 </resources>

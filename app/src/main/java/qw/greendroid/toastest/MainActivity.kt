@@ -5,9 +5,13 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.Gravity
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import qw.greendroid.library.Toastest
+import qw.greendroid.library.Toastest.Companion.makeAnim
+import android.view.animation.AccelerateDecelerateInterpolator
+import qw.greendroid.library.Toastest.Companion.makeGravity
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         toast_custom_fully_button.setOnClickListener {
+
             Toastest.custom(this,
                     getString(R.string.a_toast_with_new_text_size),
                     ContextCompat.getDrawable(this, R.drawable.ic_toast)!!,
@@ -68,5 +73,48 @@ class MainActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT)
                     .show()
         }
+
+
+        toast_custom_with_new_gravity_button.setOnClickListener {
+            Toastest.makeToast(this,
+                    getString(R.string.a_toast_with_new_font_type),
+                    Toast.LENGTH_SHORT)
+                    .apply {
+                        makeGravity(this, Gravity.CENTER)// when needs to change gravity
+                    }
+                    .show()
+        }
+
+
+        toast_custom_with_anim_button.setOnClickListener {
+            Toastest.makeToast(this,
+                    getString(R.string.a_toast_with_new_font_type),
+                    Toast.LENGTH_SHORT)
+                    .apply {
+                        makeAnim(this,
+                                "translationX",
+                                2000,
+                                AccelerateDecelerateInterpolator(),
+                                -400f,
+                                0f)
+                    }
+                    .show()
+        }
+
+        toast_custom_with_anim_and_new_gravity_button.setOnClickListener {
+            Toastest.makeToast(this,
+                    getString(R.string.a_toast_with_new_font_type),
+                    Toast.LENGTH_SHORT)
+                    .apply {
+                        makeAnim(this,
+                                "translationY",
+                                2000,
+                                -400f,
+                                0f)
+                        makeGravity(this, Gravity.TOP)// when needs to change gravity
+                    }
+                    .show()
+        }
     }
 }
+

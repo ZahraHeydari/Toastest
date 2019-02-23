@@ -56,6 +56,16 @@ This displays a Toast with a new text size.
 Toastest.makeToast(context, "This a toast with a new text size.", TEXT_SIZE, Toast.LENGTH_SHORT).show()
 ```
 
+The `makeGravity()` method makes a Toast with new Gravity:
+``` kotlin
+makeGravity(toast,YOUR_GRAVITY)
+```
+
+The `makeAnim()` method makes a toast by ObjectAnimator as below:
+``` kotlin
+makeAnim(toast, propertyName, animDuration, animInterpolator, from, to)
+```
+
 And you can create your custom Toasts with the `custom()` method:
 ``` kotlin
 Toastest.custom(context, "This is a fully customized toast.", iconDrawable, backgroundDrawable, TEXT_SIZE, TEXT_TYPEFACE, Toast.LENGTH_SHORT).show()

@@ -53,5 +53,29 @@
         android:layout_centerHorizontal="true"
         android:text="@string/make_a_fully_customized_toast" />
 
+    <Button
+        android:id="@+id/toast_custom_with_new_gravity_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toast_custom_fully_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/make_a_toast_with_new_gravity" />
+
+    <Button
+        android:id="@+id/toast_custom_with_anim_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toast_custom_with_new_gravity_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/make_a_toast_by_anim" />
+
+    <Button
+        android:id="@+id/toast_custom_with_anim_and_new_gravity_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toast_custom_with_anim_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/make_a_toast_with_new_gravity_by_anim" />
+
 
 </RelativeLayout>
