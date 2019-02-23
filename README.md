@@ -1,7 +1,9 @@
 # Toastest
 [![API](https://img.shields.io/badge/API-17%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=17)
 
-This is for customizing toasts!
+###### This is a library for customizing toasts!
+
+By using it, you can set background, text size, text color, font and icon to your toasts and using anim to display it. 
 
 ## Prerequisites
 
