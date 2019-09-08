@@ -3,8 +3,8 @@ package qw.greendroid.toastest
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Gravity
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,14 +30,14 @@ class MainActivity : AppCompatActivity() {
         toast_custom_with_icon_button.setOnClickListener {
             Toastest.makeToast(this,
                     getString(R.string.a_toast_with_icon),
-                    ContextCompat.getDrawable(this, R.drawable.ic_toast)!!,
+                    ContextCompat.getDrawable(this, R.drawable.ic_toast),
                     Toast.LENGTH_SHORT)
                     .show()
         }
 
         toast_custom_with_new_background_button.setOnClickListener {
             Toastest.makeToast(this,
-                    ContextCompat.getDrawable(this, R.drawable.toastest_red_background)!!,
+                    ContextCompat.getDrawable(this, R.drawable.toastest_red_background),
                     getString(R.string.a_toast_with_new_background),
                     Toast.LENGTH_SHORT)
                     .show()
@@ -65,8 +65,8 @@ class MainActivity : AppCompatActivity() {
 
             Toastest.custom(this,
                     getString(R.string.a_toast_with_new_text_size),
-                    ContextCompat.getDrawable(this, R.drawable.ic_toast)!!,
-                    ContextCompat.getDrawable(this, R.drawable.toastest_red_background)!!,
+                    ContextCompat.getDrawable(this, R.drawable.ic_toast),
+                    ContextCompat.getDrawable(this, R.drawable.toastest_red_background),
                     Typeface.createFromAsset(applicationContext.assets, "fonts/AtlantaBook.ttf"),
                     TEXT_COLOR,
                     TEXT_SIZE,

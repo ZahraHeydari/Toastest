@@ -6,8 +6,8 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.support.annotation.ColorInt
-import android.support.v4.content.ContextCompat.getDrawable
+import androidx.annotation.ColorInt
+import androidx.core.content.ContextCompat.getDrawable
 import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +16,6 @@ import android.widget.TextView
 import android.widget.Toast
 import android.view.ViewGroup
 import android.animation.*
-
 
 
 /**
@@ -40,7 +39,7 @@ class Toastest {
             return custom(context, message, null, null, DEFAULT_TEXT_TYPEFACE, DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
         }
 
-        fun makeToast(context: Context, message: String, icon: Drawable, duration: Int): Toast {
+        fun makeToast(context: Context, message: String, icon: Drawable?, duration: Int): Toast {
             return custom(context, message, icon, null, DEFAULT_TEXT_TYPEFACE, DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
         }
 
@@ -48,7 +47,7 @@ class Toastest {
             return custom(context, message, icon, background, DEFAULT_TEXT_TYPEFACE, DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
         }
 
-        fun makeToast(context: Context, background: Drawable, message: String, duration: Int): Toast {
+        fun makeToast(context: Context, background: Drawable?, message: String, duration: Int): Toast {
             return custom(context, message, null, background, DEFAULT_TEXT_TYPEFACE, DEFAULT_TEXT_COLOR, DEFAULT_TEXT_SIZE, duration)
         }
 
@@ -72,8 +71,8 @@ class Toastest {
             return custom(context, message, null, background, fontType, DEFAULT_TEXT_COLOR, textSize, duration)
         }
 
-        fun makeGravity(toast: Toast, gravity:Int){
-            toast.setGravity(gravity,0,0)
+        fun makeGravity(toast: Toast, gravity: Int) {
+            toast.setGravity(gravity, 0, 0)
         }
 
         fun makeAnim(toast: Toast,
@@ -99,7 +98,8 @@ class Toastest {
         }
 
 
-        fun custom(context: Context, message: String, icon: Drawable?,
+        fun custom(context: Context, message: String,
+                   icon: Drawable?,
                    background: Drawable?,
                    fontType: Typeface,
                    textColor: Int,
@@ -113,15 +113,16 @@ class Toastest {
             val toastTextView = toastLayout.findViewById<TextView>(R.id.toast_text_view)
 
             //toast background
-            toastLayout.background = if (background != null) background else getDrawable(context, R.drawable.toastest_background)
+            toastLayout.background = background
+                    ?: getDrawable(context, R.drawable.toastest_background)
 
             //icon
-            if (icon != null) toastIcon.setBackground(icon) else toastIcon.visibility = View.GONE
+            if (icon != null) toastIcon.background = icon else toastIcon.visibility = View.GONE
 
             toastTextView.text = message
             toastTextView.setTextColor(textColor)
             toastTextView.typeface = fontType
-            toastTextView.setTextSize(textSize.toFloat())
+            toastTextView.textSize = textSize.toFloat()
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 TransitionManager.beginDelayedTransition(toastLayout as ViewGroup)
